@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>linux命令笔记 | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="linux常用命令‘ls’列出目录下的内容格式 ls[-a,-l,-h] [linux路径]-a :all 列出所有文件包括隐藏内容-l :将内容以列表形式列出-h :需要和-l搭配使用，显示文件大小 ‘cd’ 切换当前的工作目录格式 cd[linux 路径]使用参数切换到指定路径不使用参数则切换工作目录到当前用户的home目录 ‘pwd’ 输出当前所在的工作目录路径的分类绝对路径以根目录作为起点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux命令笔记">
+<meta property="og:url" content="http://example.com/2026/04/17/linux%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="linux常用命令‘ls’列出目录下的内容格式 ls[-a,-l,-h] [linux路径]-a :all 列出所有文件包括隐藏内容-l :将内容以列表形式列出-h :需要和-l搭配使用，显示文件大小 ‘cd’ 切换当前的工作目录格式 cd[linux 路径]使用参数切换到指定路径不使用参数则切换工作目录到当前用户的home目录 ‘pwd’ 输出当前所在的工作目录路径的分类绝对路径以根目录作为起点">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
+<meta property="article:published_time" content="2026-04-17T11:18:35.000Z">
+<meta property="article:modified_time" content="2026-04-17T13:05:48.848Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "linux命令笔记",
+  "url": "http://example.com/2026/04/17/linux%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/",
+  "image": "http://example.com/img/butterfly-icon.png",
+  "datePublished": "2026-04-17T11:18:35.000Z",
+  "dateModified": "2026-04-17T13:05:48.848Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2026/04/17/linux%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'linux命令笔记',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/"><span class="site-name">linux命令笔记</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">linux命令笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-04-17T11:18:35.000Z" title="Created 2026-04-17 19:18:35">2026-04-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-04-17T13:05:48.848Z" title="Updated 2026-04-17 21:05:48">2026-04-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h1><h2 id="‘ls’列出目录下的内容"><a href="#‘ls’列出目录下的内容" class="headerlink" title="‘ls’列出目录下的内容"></a>‘ls’列出目录下的内容</h2><p>格式 ls[-a,-l,-h] [linux路径]<br>-a :all 列出所有文件包括隐藏内容<br>-l :将内容以列表形式列出<br>-h :需要和-l搭配使用，显示文件大小</p>
+<h2 id="‘cd’-切换当前的工作目录"><a href="#‘cd’-切换当前的工作目录" class="headerlink" title="‘cd’ 切换当前的工作目录"></a>‘cd’ 切换当前的工作目录</h2><p>格式 cd[linux 路径]<br>使用参数切换到指定路径<br>不使用参数则切换工作目录到当前用户的home目录</p>
+<h2 id="‘pwd’-输出当前所在的工作目录"><a href="#‘pwd’-输出当前所在的工作目录" class="headerlink" title="‘pwd’ 输出当前所在的工作目录"></a>‘pwd’ 输出当前所在的工作目录</h2><h2 id="路径的分类"><a href="#路径的分类" class="headerlink" title="路径的分类"></a>路径的分类</h2><h3 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h3><p>以根目录作为起点</p>
+<h3 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h3><p>以当前路径作为起点描述</p>
+<h3 id="特殊路径符号"><a href="#特殊路径符号" class="headerlink" title="特殊路径符号"></a>特殊路径符号</h3><p>.表示当前目录<br>..表示上一级目录<br>~表示用户home目录</p>
+<h2 id="‘mkdir’用于创建新的目录（文件夹）"><a href="#‘mkdir’用于创建新的目录（文件夹）" class="headerlink" title="‘mkdir’用于创建新的目录（文件夹）"></a>‘mkdir’用于创建新的目录（文件夹）</h2><p>格式：mkdir[-p] linux 路径<br>参数必填相对，绝对，特殊路径符号都可以使用<br>-p 可以创造不存在的父目录</p>
+<h2 id="‘touch’用于创建一个新的文件"><a href="#‘touch’用于创建一个新的文件" class="headerlink" title="‘touch’用于创建一个新的文件"></a>‘touch’用于创建一个新的文件</h2><p>格式:touch linux 路径（相对，绝对，特殊符）都行</p>
+<h2 id="‘cat’用于查看文件内容"><a href="#‘cat’用于查看文件内容" class="headerlink" title="‘cat’用于查看文件内容"></a>‘cat’用于查看文件内容</h2><p>格式:cat linux路径(相对，绝对，特殊符)都行</p>
+<h2 id="‘more’用于查看文件内容，可以翻页查看"><a href="#‘more’用于查看文件内容，可以翻页查看" class="headerlink" title="‘more’用于查看文件内容，可以翻页查看"></a>‘more’用于查看文件内容，可以翻页查看</h2><p>空格翻页，q退出<br>格式:more linux路径</p>
+<h2 id="‘cp’用于复制文件或者文件夹"><a href="#‘cp’用于复制文件或者文件夹" class="headerlink" title="‘cp’用于复制文件或者文件夹"></a>‘cp’用于复制文件或者文件夹</h2><p>[-r]用于复制文件夹<br>格式:CP[-r]参数1 参数2<br>参数1表示被复制的文件或者文件夹<br>参数2表示要复制去的地方</p>
+<h2 id="‘mv’用于移动文件"><a href="#‘mv’用于移动文件" class="headerlink" title="‘mv’用于移动文件"></a>‘mv’用于移动文件</h2><p>格式:mv参数1,参数2<br>参数1表示被移动的文件或者文件夹<br>参数2表示移动去的地方，如果目标不存在则进行改名</p>
+<h2 id="‘rm’用于文件或者文件夹的删除"><a href="#‘rm’用于文件或者文件夹的删除" class="headerlink" title="‘rm’用于文件或者文件夹的删除"></a>‘rm’用于文件或者文件夹的删除</h2><p>格式:rm[-r,-f]参数1……参数n<br>-r选项，可选，文件夹删除<br>-f选项，用于强制删除<br>支持通配符*，用于模糊匹配</p>
+<h2 id="‘which’用来查找命令的程序文件"><a href="#‘which’用来查找命令的程序文件" class="headerlink" title="‘which’用来查找命令的程序文件"></a>‘which’用来查找命令的程序文件</h2><p>格式:which 要查找的命令</p>
+<h2 id="‘find’用来查找指定文件"><a href="#‘find’用来查找指定文件" class="headerlink" title="‘find’用来查找指定文件"></a>‘find’用来查找指定文件</h2><h3 id="文件名查找"><a href="#文件名查找" class="headerlink" title="文件名查找"></a>文件名查找</h3><p>格式:find 起始路径 -name (被查找的文件名)<br>支持*通配符<br>按文件大小查找:find 起始路径 -size +n -n[单位]</p>
+<h2 id="‘grep’从文件中通过关键字过滤文件行"><a href="#‘grep’从文件中通过关键字过滤文件行" class="headerlink" title="‘grep’从文件中通过关键字过滤文件行"></a>‘grep’从文件中通过关键字过滤文件行</h2><p>格式:grep[-n]关键字 文件路径<br>-n 可以显示匹配行的行号</p>
+<h2 id="‘wc’统计文件的行数，单词数量，字节数，字符数"><a href="#‘wc’统计文件的行数，单词数量，字节数，字符数" class="headerlink" title="‘wc’统计文件的行数，单词数量，字节数，字符数"></a>‘wc’统计文件的行数，单词数量，字节数，字符数</h2><p>格式:wc [-c -m -l -w]文件路径<br>-c:字节 -m:字符 -l:行 -w:单词</p>
+<h2 id="‘-’管道符-左边命令的结果，作为右边命令的输入"><a href="#‘-’管道符-左边命令的结果，作为右边命令的输入" class="headerlink" title="‘|’管道符 左边命令的结果，作为右边命令的输入"></a>‘|’管道符 左边命令的结果，作为右边命令的输入</h2><h2 id="‘echo’-输出内容-（和C语言中printf一样）"><a href="#‘echo’-输出内容-（和C语言中printf一样）" class="headerlink" title="‘echo’ 输出内容 （和C语言中printf一样）"></a>‘echo’ 输出内容 （和C语言中printf一样）</h2><p>（在键盘上有一个’号，这个包住的命令会执行，echo会输出执行结果）</p>
+<h2 id="两种特殊地符号"><a href="#两种特殊地符号" class="headerlink" title="两种特殊地符号"></a>两种特殊地符号</h2><p>‘&gt;’将左侧命令的结果，覆盖写入到符号右侧文件中<br>‘&gt;&gt;’将左侧命令的结果，追加写入到符号右侧的文件中</p>
+<h2 id="‘tail’查看文件尾部内容跟踪文件最新更改"><a href="#‘tail’查看文件尾部内容跟踪文件最新更改" class="headerlink" title="‘tail’查看文件尾部内容跟踪文件最新更改"></a>‘tail’查看文件尾部内容跟踪文件最新更改</h2><p>格式:tail [-f -num] linux路径<br>-f 表示持续跟踪<br>-num 表示查看多少行(不填默认10行)</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2026/04/17/linux%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/">http://example.com/2026/04/17/linux%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/04/13/hello-world/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">Hello World</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">linux常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98ls%E2%80%99%E5%88%97%E5%87%BA%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.</span> <span class="toc-text">‘ls’列出目录下的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98cd%E2%80%99-%E5%88%87%E6%8D%A2%E5%BD%93%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="toc-number">1.2.</span> <span class="toc-text">‘cd’ 切换当前的工作目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98pwd%E2%80%99-%E8%BE%93%E5%87%BA%E5%BD%93%E5%89%8D%E6%89%80%E5%9C%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="toc-number">1.3.</span> <span class="toc-text">‘pwd’ 输出当前所在的工作目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.4.</span> <span class="toc-text">路径的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84"><span class="toc-number">1.4.1.</span> <span class="toc-text">绝对路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84"><span class="toc-number">1.4.2.</span> <span class="toc-text">相对路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E8%B7%AF%E5%BE%84%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.4.3.</span> <span class="toc-text">特殊路径符号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98mkdir%E2%80%99%E7%94%A8%E4%BA%8E%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E7%9B%AE%E5%BD%95%EF%BC%88%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%89"><span class="toc-number">1.5.</span> <span class="toc-text">‘mkdir’用于创建新的目录（文件夹）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98touch%E2%80%99%E7%94%A8%E4%BA%8E%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">1.6.</span> <span class="toc-text">‘touch’用于创建一个新的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98cat%E2%80%99%E7%94%A8%E4%BA%8E%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-number">1.7.</span> <span class="toc-text">‘cat’用于查看文件内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98more%E2%80%99%E7%94%A8%E4%BA%8E%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%EF%BC%8C%E5%8F%AF%E4%BB%A5%E7%BF%BB%E9%A1%B5%E6%9F%A5%E7%9C%8B"><span class="toc-number">1.8.</span> <span class="toc-text">‘more’用于查看文件内容，可以翻页查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98cp%E2%80%99%E7%94%A8%E4%BA%8E%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E6%88%96%E8%80%85%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">1.9.</span> <span class="toc-text">‘cp’用于复制文件或者文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98mv%E2%80%99%E7%94%A8%E4%BA%8E%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="toc-number">1.10.</span> <span class="toc-text">‘mv’用于移动文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98rm%E2%80%99%E7%94%A8%E4%BA%8E%E6%96%87%E4%BB%B6%E6%88%96%E8%80%85%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-number">1.11.</span> <span class="toc-text">‘rm’用于文件或者文件夹的删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98which%E2%80%99%E7%94%A8%E6%9D%A5%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%96%87%E4%BB%B6"><span class="toc-number">1.12.</span> <span class="toc-text">‘which’用来查找命令的程序文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98find%E2%80%99%E7%94%A8%E6%9D%A5%E6%9F%A5%E6%89%BE%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6"><span class="toc-number">1.13.</span> <span class="toc-text">‘find’用来查找指定文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%90%8D%E6%9F%A5%E6%89%BE"><span class="toc-number">1.13.1.</span> <span class="toc-text">文件名查找</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98grep%E2%80%99%E4%BB%8E%E6%96%87%E4%BB%B6%E4%B8%AD%E9%80%9A%E8%BF%87%E5%85%B3%E9%94%AE%E5%AD%97%E8%BF%87%E6%BB%A4%E6%96%87%E4%BB%B6%E8%A1%8C"><span class="toc-number">1.14.</span> <span class="toc-text">‘grep’从文件中通过关键字过滤文件行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98wc%E2%80%99%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E7%9A%84%E8%A1%8C%E6%95%B0%EF%BC%8C%E5%8D%95%E8%AF%8D%E6%95%B0%E9%87%8F%EF%BC%8C%E5%AD%97%E8%8A%82%E6%95%B0%EF%BC%8C%E5%AD%97%E7%AC%A6%E6%95%B0"><span class="toc-number">1.15.</span> <span class="toc-text">‘wc’统计文件的行数，单词数量，字节数，字符数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98-%E2%80%99%E7%AE%A1%E9%81%93%E7%AC%A6-%E5%B7%A6%E8%BE%B9%E5%91%BD%E4%BB%A4%E7%9A%84%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BD%9C%E4%B8%BA%E5%8F%B3%E8%BE%B9%E5%91%BD%E4%BB%A4%E7%9A%84%E8%BE%93%E5%85%A5"><span class="toc-number">1.16.</span> <span class="toc-text">‘|’管道符 左边命令的结果，作为右边命令的输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98echo%E2%80%99-%E8%BE%93%E5%87%BA%E5%86%85%E5%AE%B9-%EF%BC%88%E5%92%8CC%E8%AF%AD%E8%A8%80%E4%B8%ADprintf%E4%B8%80%E6%A0%B7%EF%BC%89"><span class="toc-number">1.17.</span> <span class="toc-text">‘echo’ 输出内容 （和C语言中printf一样）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E7%89%B9%E6%AE%8A%E5%9C%B0%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.18.</span> <span class="toc-text">两种特殊地符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%98tail%E2%80%99%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%B0%BE%E9%83%A8%E5%86%85%E5%AE%B9%E8%B7%9F%E8%B8%AA%E6%96%87%E4%BB%B6%E6%9C%80%E6%96%B0%E6%9B%B4%E6%94%B9"><span class="toc-number">1.19.</span> <span class="toc-text">‘tail’查看文件尾部内容跟踪文件最新更改</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/17/linux%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/" title="linux命令笔记">linux命令笔记</a><time datetime="2026-04-17T11:18:35.000Z" title="Created 2026-04-17 19:18:35">2026-04-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/13/hello-world/" title="Hello World">Hello World</a><time datetime="2026-04-13T11:25:02.049Z" title="Created 2026-04-13 19:25:02">2026-04-13</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By John Doe</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
