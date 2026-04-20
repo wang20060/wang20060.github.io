@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>mysql 命令 | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="MySQL 学习笔记 一、数据库基础操作 sql – 查询数据库show databases;– 查询当前数据库select database();– 创建数据库create database 数据库名 [if not exists];– 删除数据库drop database 数据库名;– 使用数据库use 数据库名;   二、数据表操作  表查看与创建  sql – 查询库中所有表show ta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql 命令">
+<meta property="og:url" content="http://example.com/2026/04/20/mysql-%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MySQL 学习笔记 一、数据库基础操作 sql – 查询数据库show databases;– 查询当前数据库select database();– 创建数据库create database 数据库名 [if not exists];– 删除数据库drop database 数据库名;– 使用数据库use 数据库名;   二、数据表操作  表查看与创建  sql – 查询库中所有表show ta">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
+<meta property="article:published_time" content="2026-04-20T09:16:30.000Z">
+<meta property="article:modified_time" content="2026-04-20T09:38:28.644Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "mysql 命令",
+  "url": "http://example.com/2026/04/20/mysql-%E5%91%BD%E4%BB%A4/",
+  "image": "http://example.com/img/butterfly-icon.png",
+  "datePublished": "2026-04-20T09:16:30.000Z",
+  "dateModified": "2026-04-20T09:38:28.644Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2026/04/20/mysql-%E5%91%BD%E4%BB%A4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'mysql 命令',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/"><span class="site-name">mysql 命令</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">mysql 命令</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-04-20T09:16:30.000Z" title="Created 2026-04-20 17:16:30">2026-04-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-04-20T09:38:28.644Z" title="Updated 2026-04-20 17:38:28">2026-04-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>MySQL 学习笔记</p>
+<p>一、数据库基础操作</p>
+<p>sql</p>
+<p>– 查询数据库<br>show databases;<br>– 查询当前数据库<br>select database();<br>– 创建数据库<br>create database 数据库名 [if not exists];<br>– 删除数据库<br>drop database 数据库名;<br>– 使用数据库<br>use 数据库名;
+ </p>
+<p>二、数据表操作</p>
+<ol>
+<li>表查看与创建</li>
+</ol>
+<p>sql</p>
+<p>– 查询库中所有表<br>show tables;<br>– 查看表结构<br>desc 表名;<br>– 查询指定表的建表语句<br>show create table 表名;</p>
+<p>– 创建表<br>create table 表名(<br>    字段1 字段类型 [约束],<br>    字段2 字段类型 [约束],<br>    …<br>) [comment 表注释];</p>
+<p>– 常用数据类型<br>int – 整数类型<br>varchar – 字符串类型</p>
+<p>– 常用约束<br>非空约束: NOT NULL<br>唯一约束: 不允许出现重复 unique<br>主键约束: primary key (自增 auto_increment)<br>默认约束: default<br>检查约束: check<br>外键约束: foreign key
+ </p>
+<ol start="2">
+<li>表修改</li>
+</ol>
+<p>sql</p>
+<p>– 添加字段<br>alter table 表名 add 字段名 类型 [comment 注释] [约束];<br>– 修改字段名和字段类型<br>alter table 表名 change 旧字段名 新字段名 类型 [comment 注释] [约束];<br>– 修改数据类型<br>alter table 表名 modify 字段名 新数据类型;<br>– 删除字段<br>alter table 表名 drop 字段名;<br>– 修改表名<br>alter table 表名 rename to 新表名;<br>– 删除表<br>drop table [if exists] 表名;
+ </p>
+<p>三、数据操作（增删改查）</p>
+<p>sql</p>
+<p>– 添加数据<br>insert into 表名 (字段1, 字段2, …) values (值1, 值2, …)[, (值1, 值2, …)];<br>– 修改数据<br>update 表名 set 字段1&#x3D;值1, 字段2&#x3D;值2, … [where 条件];<br>– 删除数据<br>delete from 表名 [where 条件];
+ </p>
+<p>四、查询语法与多表操作</p>
+<ol>
+<li>基础查询语法</li>
+</ol>
+<p>sql</p>
+<p>select 字段列表 – 字段名(AS)别名<br>from 表名<br>where 条件列表 – &gt;、&gt;&#x3D;、&lt;、&lt;&#x3D;、&lt;&gt;、like、between…and、in、and、or<br>group by 分组字段列表 – 分组前过滤（where）<br>having 分组后条件列表 – 分组后过滤（having）<br>order by 排序字段列表 – 升序ASC、降序DESC<br>limit 分页参数 – 起始索引(从0开始), 每页记录数;
+ </p>
+<ol start="2">
+<li>多表查询</li>
+</ol>
+<p>sql</p>
+<p>– 隐式内连接<br>select * from 表A, 表B where 条件;<br>– 显式内连接<br>select … from 表A inner join 表B on 条件;<br>– 左外连接<br>select … from 表A left join 表B on 条件;<br>– 右外连接<br>select … from 表A right join 表B on 条件;<br>– 自连接<br>select … from 表A 别名1, 表A 别名2 where 条件;
+ </p>
+<ol start="3">
+<li>子查询</li>
+</ol>
+<p>sql</p>
+<p>– 标量子查询、列子查询、行子查询、表子查询<br>– 列子查询常用操作符<br>in – 在指定的集合范围内，多选一<br>not in – 不在指定的集合范围内<br>any – 子查询返回列表中，有任一满足即可<br>some – 与any等同<br>all – 子查询返回列表所有值必须满足
+ </p>
+<p>五、常用函数</p>
+<ol>
+<li>字符串函数</li>
+</ol>
+<p>sql</p>
+<p>concat – 拼接字符串<br>lower – 全转为小写<br>upper – 全转为大写<br>lpad – 左填充<br>rpad – 右填充<br>trim – 去除左右两边空格<br>substring – 字符串截取
+ </p>
+<ol start="2">
+<li>数值函数</li>
+</ol>
+<p>sql</p>
+<p>ceil – 向上取整<br>floor – 向下取整<br>mod – 求模<br>rand – 求随机数(0-1)<br>round – 四舍五入保留指定位数
+ </p>
+<ol start="3">
+<li>日期函数</li>
+</ol>
+<p>sql</p>
+<p>curdate – 获取当前日期<br>curtime – 获取当前时间<br>now – 当前日期+时间<br>year – 获取年份<br>month – 获取月份<br>day – 获取日期<br>date_add – 添加指定时间周期<br>datediff – 两个日期相减
+ </p>
+<ol start="4">
+<li>流程函数</li>
+</ol>
+<p>sql</p>
+<p>if(value, t, f) – 如果value为true，返回t，否则返回f<br>ifnull(value1, value2) – 如果value1不为空，返回value1，否则返回value2<br>case when [条件1] then [结果1] … else [默认结果] end – 如果条件1满足，则返回结果1，否则执行下一个条件<br>case expr when [值1] then [结果1] … else [默认结果] end – 如果expr等于值1，则返回结果1，依此类推
+ </p>
+<p>六、用户与权限管理</p>
+<p>sql</p>
+<p>– 创建用户<br>create user ‘用户名‘@’主机名’ identified by ‘密码’;<br>– 修改用户密码<br>alter user ‘用户名‘@’主机名’ identified with mysql_native_password by ‘新密码’;<br>– 删除用户<br>drop user ‘用户名‘@’主机名’;</p>
+<p>– 权限控制<br>grant 权限列表 on 数据库名.表名 to ‘用户名‘@’主机名’;<br>revoke 权限列表 on 数据库名.表名 from ‘用户名‘@’主机名’;
+ </p>
+<p>七、事务管理</p>
+<ol>
+<li>事务提交与回滚</li>
+</ol>
+<p>sql</p>
+<p>– 查看事务提交方式<br>select @@autocommit;<br>– 设置事务提交方式<br>set @@autocommit &#x3D; 0;<br>– 开启事务<br>start transaction 或 begin;<br>– 提交事务<br>commit;<br>– 回滚事务<br>rollback;
+ </p>
+<ol start="2">
+<li>事务四大特性（ACID）</li>
+</ol>
+<ul>
+<li>原子性：事务是不可分割的最小操作单位，要全部成功或全部失败</li>
+<li>一致性：事务完成时，必须使所有数据一致</li>
+<li>隔离性：数据库系统提供的隔离机制，保证事务在不受外部并发操作影响的独立环境下运行</li>
+<li>持久性：事务一旦提交或回滚，它对数据库的改变是永久的</li>
+</ul>
+<ol start="3">
+<li>并发事务问题</li>
+</ol>
+<ul>
+<li>脏读：一个事务读到另一个事务还没有提交的数据</li>
+<li>不可重复读：一个事务先后读取同一条记录，但两次读取的数据不同</li>
+<li>幻读：一个事务按照条件查询数据时，没有对应的数据行，但在插入数据时，又发现这行数据已经存在</li>
+</ul>
+<ol start="4">
+<li>事务隔离级别</li>
+</ol>
+<p>隔离级别 脏读 不可重复读 幻读 性能<br>Read Uncommitted    高<br>Read Committed    中<br>Repeatable Read（MySQL默认）    中<br>Serializable    低 </p>
+<p>sql</p>
+<p>– 查看事务隔离级别<br>select @@transaction_isolation;<br>– 设置事务隔离级别<br>set [session&#x2F;global] transaction isolation level [Read Uncommitted&#x2F;Read Committed&#x2F;Repeatable Read&#x2F;Serializable];</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2026/04/20/mysql-%E5%91%BD%E4%BB%A4/">http://example.com/2026/04/20/mysql-%E5%91%BD%E4%BB%A4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/04/20/linux%E5%91%BD%E4%BB%A42/" title="linux命令2"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">linux命令2</div></div><div class="info-2"><div class="info-item-1">一、Linux 系统核心操作 一、Linux 系统核心操作 （一）进程管理  查看进程信息  bash 通过ps命令查看Linux系统中的进程信息-e：显示全部的进程-f：以完整格式形式展示信息ps -ef    实时监控系统资源  bash top命令查看CPU、内存使用情况交互操作：h：显示帮助画面c：显示完整命令P：根据CPU使用百分比排序M：根据内存占用大小排序T：根据时间&#x2F;累计时间排序E：切换顶部内存显示单位e：切换进程内存显示单位l：切换显示平均负载和启动时间信息i：不显示闲置或无用的进程t：切换显示CPU状态摘要m：切换显示内存摘要top 常用参数：-p：只显示某个进程信息-d：设置刷新时间，默认5s-c：显示产生进程的完整命令，默认进程名-n：指定刷新次数，例如 top -n 3 3次后退出-b：以批处理模式运行-u：查找特定用户启动的进程   终止进程  bash kill：关闭进程（需指定进程号）-9：强制关闭进程kill -9 [进程号]   （二）用户与用户组管理  用户组操作  bash 创建用户组groupadd [用户组名] 删除用户组gr...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/20/mysql-%E5%91%BD%E4%BB%A4/" title="mysql 命令">mysql 命令</a><time datetime="2026-04-20T09:16:30.000Z" title="Created 2026-04-20 17:16:30">2026-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/20/linux%E5%91%BD%E4%BB%A42/" title="linux命令2">linux命令2</a><time datetime="2026-04-20T09:16:01.000Z" title="Created 2026-04-20 17:16:01">2026-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/17/linux%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/" title="linux命令笔记">linux命令笔记</a><time datetime="2026-04-17T11:18:35.000Z" title="Created 2026-04-17 19:18:35">2026-04-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/13/hello-world/" title="Hello World">Hello World</a><time datetime="2026-04-13T11:25:02.049Z" title="Created 2026-04-13 19:25:02">2026-04-13</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By John Doe</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
